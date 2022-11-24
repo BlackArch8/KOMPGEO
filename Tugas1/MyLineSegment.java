@@ -21,7 +21,8 @@ public class MyLineSegment {
      */
     double distanceToPoint(MyPoint p) {
 		double dist = 0.0;	//menyimpan jarak
-
+        // persamaanGaris
+        // dist = 
         return dist;
     }
 
@@ -43,7 +44,12 @@ public class MyLineSegment {
      */
     boolean isIntersect(MyLineSegment other) {
 		boolean potong = false;
-		
+        double d1 = CG.ccw(this.start, this.end, other.end);
+        double d2 = CG.ccw(this.start, this.end, other.start);
+        
+		if (((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) ) {
+             potong =  true;
+        }
         return potong;
     }
 

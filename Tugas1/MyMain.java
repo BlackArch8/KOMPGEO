@@ -7,8 +7,23 @@ public class MyMain {
 		Scanner sc = new Scanner(System.in); //scanner
 		int ch = sc.nextInt();				// pilihan fungsi atau keluar
 		while(ch!=0) {					//selama tidak memilih keluar
-			if (1==ch) {}
-			else if (2==ch) {}
+			if (1==ch) { //fungsi 1
+				MyPoint A = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyPoint B = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				System.out.printf("%.3f",A.distanceToOtherPoints(B));
+				
+
+			}
+			else if (2==ch) { //fungsi 2
+				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble());
+
+				double hasil = CG.dot(p,q,r);
+				System.out.printf("%.3f",hasil);
+
+
+			}
 			else if (3==ch) { //fungsi 3
 				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble());
 				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble());
@@ -20,7 +35,26 @@ public class MyMain {
 				else if (res>0.0) arah = "Kiri";
 				System.out.println(arah);
 			}
-			else if (4==ch) {}
+			else if (4==ch) { //fungsi 4
+				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyPoint s = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyLineSegment l = new MyLineSegment(p,q);
+				MyLineSegment m = new MyLineSegment(r,s);
+				boolean intersect = l.isIntersect(m);
+
+				if(intersect == false){
+					System.out.println("Tidak");
+				}
+				else{
+					System.out.println("Ya");
+				}
+
+				
+
+
+			}
 			else if (5==ch) {}
 			else if (6==ch) {}
 			else if (7==ch) {}
