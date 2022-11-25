@@ -19,24 +19,27 @@ public class CG {
      * @return
      */
     public static double dot(MyPoint p, MyPoint q, MyPoint r) {
-        MyPoint pq = new MyPoint(q.x - p.x,q.y-p.y );
-        MyPoint qr = new MyPoint(r.x - q.x,r.y-q.y );
+        // MyPoint pq = new MyPoint(q.x - p.x,q.y-p.y );
+        // MyPoint qr = new MyPoint(r.x - q.x,r.y-q.y );
 
-        MyPoint qp = new MyPoint(p.x-q.x,p.y-q.y);
-        MyPoint pr = new MyPoint(r.x-p.x,r.y-p.y);
-        double pqdotpr = pq.x*qr.x+pq.y*qr.y;
+        // MyPoint qp = new MyPoint(p.x-q.x,p.y-q.y);
+        // MyPoint pr = new MyPoint(r.x-p.x,r.y-p.y);
+        // double pqdotpr = pq.x*qr.x+pq.y*qr.y;
 
-        double qpdotpr = qp.x*pr.x+qp.y*pr.y;
-        double res = 0;
-        if(pqdotpr> 0){
-            res = q.distanceToOtherPoints(p);
+        // double qpdotpr = qp.x*pr.x+qp.y*pr.y;
+        // double res = 0;
+        // if(pqdotpr> 0){
+        //     res = q.distanceToOtherPoints(p);
 
-        }else if(qpdotpr> 0){
-            res = p.distanceToOtherPoints(r);
-        }//distancenya blm
+        // }else if(qpdotpr> 0){
+        //     res = p.distanceToOtherPoints(r);
+        // }else{
+        //     res =9999;
+        //     //distancenya blm
+        // }
 
 
-        return res;
+        return 0;
     }
 
     /**

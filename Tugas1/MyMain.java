@@ -8,47 +8,51 @@ public class MyMain {
 		int ch = sc.nextInt();				// pilihan fungsi atau keluar
 		while(ch!=0) {					//selama tidak memilih keluar
 			if (1==ch) { //fungsi 1
-				MyPoint A = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyPoint B = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				System.out.printf("%.3f",A.distanceToOtherPoints(B));
-				
-
+				MyPoint A = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik pertama
+				MyPoint B = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik kedua
+				System.out.printf("%.3f",A.distanceToOtherPoints(B)); //output jarak titik pertama dan titik kedua
 			}
 			else if (2==ch) { //fungsi 2
-				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik pertama
+				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik kedua
+				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik ketiga
 
-				double hasil = CG.dot(p,q,r);
-				System.out.printf("%.3f",hasil);
+				//double hasil = CG.dot(p,q,r); //
+				MyLineSegment l = new MyLineSegment(q,r); //instansiasi segmen garis
+
+				double hasil = l.distanceToPoint(p); //mendapatkan hasil dengan cara memanggil method untuk mencari jarak dari segmen garis ke titik  
+
+				System.out.printf("%.3f",hasil ); //output hasil
 
 
 			}
 			else if (3==ch) { //fungsi 3
-				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble());
+				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik pertama
+				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik kedua
+				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik ketiga
 				MyLineSegment l = new MyLineSegment(p,q); //segmen garis/vektor dari p ke q
 				double res = l.leftTurnToPoint(r); // dari p ke q ke r apakah belok kiri/kanan/lurus
-				String arah = new String("Kolinear");
-				if (res<0.0) arah = "Kanan";
-				else if (res>0.0) arah = "Kiri";
-				System.out.println(arah);
+				String arah = new String("Kolinear"); //instansiasi string arah
+				if (res<0.0) arah = "Kanan"; //kondisi jika posisi titik terhadap segmen garis belok kanan 
+				else if (res>0.0) arah = "Kiri"; //kondisi jika posisi titik terhadap segmen garis belok kiri
+				System.out.println(arah); //output posisi titik terhadap segmen garis
 			}
 			else if (4==ch) { //fungsi 4
-				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyPoint s = new MyPoint(sc.nextDouble(),sc.nextDouble());
-				MyLineSegment l = new MyLineSegment(p,q);
-				MyLineSegment m = new MyLineSegment(r,s);
-				boolean intersect = l.isIntersect(m);
+				MyPoint p = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik pertama
+				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik kedua
+				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik ketiga
+				MyPoint s = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik keempat
+				MyLineSegment l = new MyLineSegment(p,q); //instansiasi segmen garis pertama dari titik pertama dan titik kedua
+				MyLineSegment m = new MyLineSegment(r,s); //instansiasi segmen garis kedua dari titik ketiga dan titik keempat
+				boolean intersect = l.isIntersect(m); //menentukan berpotongan atau tidak berpotongan dengan memanggil method isIntersect untuk segmen garis pertama dan kedua
 
+				//kondisi jika kedua segmen garis tidak berpotongan
 				if(intersect == false){
-					System.out.println("Tidak");
+					System.out.println("Tidak"); //output tidak
 				}
+				//kondisi jika kedua segmen garis berpotongan
 				else{
-					System.out.println("Ya");
+					System.out.println("Ya"); //output ya
 				}
 
 				
