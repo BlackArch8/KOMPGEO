@@ -21,21 +21,25 @@ public class MyLineSegment {
      */                                         
     double distanceToPoint(MyPoint p ) {
 		double dist = 0.0;	//menyimpan jarak
-        MyPoint pq = new MyPoint(this.start.x - p.x,this.start.y-p.y );
-        MyPoint qr = new MyPoint(this.end.x - this.start.x,this.end.y-this.start.y );
+        MyPoint pq = new MyPoint(this.start.x - p.x,this.start.y-p.y ); //instansiasi vektor pq
+        MyPoint qr = new MyPoint(this.end.x - this.start.x,this.end.y-this.start.y ); //instansiasi vektor qr
 
-        MyPoint qp = new MyPoint(p.x-this.start.x,p.y-this.start.y);
-        MyPoint pr = new MyPoint(this.end.x-p.x,this.end.y-p.y);
-        double pqdotpr = pq.x*qr.x+pq.y*qr.y;
+        MyPoint qp = new MyPoint(p.x-this.start.x,p.y-this.start.y); //instansiasi vektor qp
+        MyPoint pr = new MyPoint(this.end.x-p.x,this.end.y-p.y); //instansiasi vektor pr
 
-        double qpdotpr = qp.x*pr.x+qp.y*pr.y;
+        double pqdotpr = pq.x*qr.x+pq.y*qr.y; //mencari dot product dari vektor pq dan pr
+
+        double qpdotpr = qp.x*pr.x+qp.y*pr.y; //mencari dot product dari vektor qp dan vektor pr
        
+       //kondisi jika dot product dari vektor pq dan vektor pr lebih besar dari 0
         if(pqdotpr> 0){
-            dist = this.start.distanceToOtherPoints(p);
+            dist = this.start.distanceToOtherPoints(p); //maka hitung jarak dari titik awal ke titik
 
+        //kondisi jika dot product dari vektor qp dan pr lebih besar dari 0
         }else if(qpdotpr> 0){
-            dist = p.distanceToOtherPoints(this.end);
+            dist = this.end.distanceToOtherPoints(p); //maka hitung jarak dari titik akhir ke titik 
         }else{
+            //distancenya masih belum benar kemungkinan rumusnya masih salah 
             double A = this.start.x - this.end.x; 
             double B = this.start.y - this.end.y;
             double c = A * this.start.x + B * this.end.y;
@@ -46,7 +50,7 @@ public class MyLineSegment {
             }else{
                 dist = Math.abs((p.x *A) - (p.y *B) + c) / Math.sqrt(Math.pow(A, 2) + Math.pow(B, 2));
             }
-            //distancenya blm
+            
         }
         
 
@@ -80,16 +84,7 @@ public class MyLineSegment {
 		if (((d1 > 0 && d2 < 0) || (d1 < 0 && d2 > 0)) ) {
              potong =  true;
 
-             //this start = 2,5
-             //this end = 6,5
-             //other start = 4,3
-             //other end = =4,5
-            
-            //this start = 6,6
-            //this end = 6,2
-            //other start = 3,4
-            //other end = 6,4
-
+             
         //degenerate case dimana kedua garis saling tepat menyentuh
         //ada 2 kondisi yaitu:
         //ketika koordinat x titik 1 sama dengan koordinat x titik 2 sama dengan koordinat x titik 4

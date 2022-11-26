@@ -1,3 +1,6 @@
+//@author Doni Andrian - 6182001020
+//		  Kevin Jonathan - 6182001020
+
 import java.util.Scanner;
 
 public class MyMain {
@@ -17,7 +20,7 @@ public class MyMain {
 				MyPoint q = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik kedua
 				MyPoint r = new MyPoint(sc.nextDouble(),sc.nextDouble()); //instansiasi titik ketiga
 
-				//double hasil = CG.dot(p,q,r); //
+				
 				MyLineSegment l = new MyLineSegment(q,r); //instansiasi segmen garis
 
 				double hasil = l.distanceToPoint(p); //mendapatkan hasil dengan cara memanggil method untuk mencari jarak dari segmen garis ke titik  
@@ -48,11 +51,11 @@ public class MyMain {
 
 				//kondisi jika kedua segmen garis tidak berpotongan
 				if(intersect == false){
-					System.out.println("Tidak"); //output tidak
+					System.out.println("Tidak"); //output tidak berpotongan
 				}
 				//kondisi jika kedua segmen garis berpotongan
 				else{
-					System.out.println("Ya"); //output ya
+					System.out.println("Ya"); //output ya(berpotongan)
 				}
 
 				
@@ -111,7 +114,7 @@ CONTOH INPUT
 1			==>input, kasus pertama, menguji fungsi ke-1
 0 0 3 3  		==>input data untuk kasus pertama
 2        		==>input, kasus kedua, menguji fungsi ke-2
-1 1 0 0 -10 0	==> input data untuk kasus kedua 
+c	==> input data untuk kasus kedua 
 3
 1 1 0 0 -10 0
 4
