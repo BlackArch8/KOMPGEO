@@ -62,7 +62,30 @@ public class MyMain {
 
 
 			}
-			else if (5==ch) {}
+			else if (5==ch) { // fungsi 5
+				int n = sc.nextInt();
+				MyPolygon poly = new MyPolygon();
+				
+
+
+				for (int i = 0;i<n;i++){
+					MyPoint p = new MyPoint (sc.nextDouble(),sc.nextDouble());
+					poly.addPoint(p);
+
+				}
+				boolean hasil = poly.isConvex();
+
+				if (hasil == true){
+					System.out.println("Convex");
+
+				}else{
+					System.out.println("Concave");
+				}
+		
+
+
+
+			}
 			else if (6==ch) {}
 			else if (7==ch) {}
 			else if (8==ch) {}			
@@ -125,7 +148,7 @@ c	==> input data untuk kasus kedua
 4 8 		==> titik kedua dari poligon
 -3 3 	==> titik ketiga
 -7 1 	==> titik keempat. Jadi poligon: (2,-3),(4,8)(-3,3)(-7,1), titik2nya sudah terurut berlawanan arah jarum jam
-6
+6		==> kasus 6
 4		==> poligon terdiri dari 4 buah titik, sudah terurut berlawanan arah jarum jam		
 2 -3 
 4 8 

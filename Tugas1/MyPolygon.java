@@ -19,6 +19,7 @@ public class MyPolygon {
      * @return
      */
     boolean addPoint(MyPoint p) {
+        this.Points.add(p);
         return true;
     }
 
@@ -28,6 +29,27 @@ public class MyPolygon {
      */
     boolean isConvex() {
 		boolean convex = true;
+        for(int i = 0;i<Points.size();i++){
+
+
+            double res = 0.0;
+            res = CG.ccw(this.Points.get(i % this.Points.size()) , this.Points.get((i+1) % this.Points.size()), this.Points.get((i+2) % this.Points.size()));
+			if (res<0.0){
+                convex = false;
+                return convex;
+
+            }  
+
+            
+            
+
+
+
+
+        }
+        
+		
+
 		
         return convex;
     }
