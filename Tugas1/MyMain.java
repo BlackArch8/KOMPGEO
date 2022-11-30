@@ -86,8 +86,44 @@ public class MyMain {
 
 
 			}
-			else if (6==ch) {}
-			else if (7==ch) {}
+			else if (6==ch) {
+				int n = sc.nextInt();
+				MyPolygon poly = new MyPolygon();
+
+				for(int i = 0;i<n;i++){
+					MyPoint p = new MyPoint(sc.nextDouble(), sc.nextDouble());
+					poly.addPoint(p);
+				}
+				
+				
+				System.out.println(poly.area());
+
+			}
+			else if (7==ch) { //fungsi 7
+				int n = sc.nextInt();
+				MyPolygon poly = new MyPolygon();
+
+				for (int i = 0;i<n;i++){
+					MyPoint p = new MyPoint (sc.nextDouble(),sc.nextDouble());
+					poly.addPoint(p);
+
+				}
+				MyPoint A = new MyPoint(sc.nextDouble(),sc.nextDouble());
+
+				boolean hasil = poly.isPointInside(A);
+				if(hasil == true){
+					System.out.println("In");
+
+				}else{
+					System.out.println("Out");
+				}
+				
+				
+
+				
+				
+
+			}
 			else if (8==ch) {}			
 			ch = sc.nextInt();				// pilihan berikutnya
 		}			

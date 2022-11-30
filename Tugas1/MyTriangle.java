@@ -20,7 +20,10 @@ public class MyTriangle {
      */
     double area() {
 		double area = 0.0;
-		
+        double a = (this.a.distanceToOtherPoints(this.c));
+        MyLineSegment l = new MyLineSegment(this.a,this.c);
+        double t = 3;  
+		area = 0.5*a*t;
         return area;
     }
 

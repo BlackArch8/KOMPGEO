@@ -40,11 +40,7 @@ public class MyPolygon {
 
             }  
 
-            
-            
-
-
-
+        
 
         }
         
@@ -59,7 +55,21 @@ public class MyPolygon {
      * @return
      */
     double area() {
+
 		double area = 0.0;
+        //kondisi convex
+        boolean isConvex = isConvex();
+
+				if(isConvex==true){
+					for(int i = 0;i<this.Points.size()-2;i++){
+                        MyTriangle T = new MyTriangle(this.Points.get(0),this.Points.get(i+1),this.Points.get(i+2));
+                        area += T.area();
+                    }
+				}
+				//kondisi concave
+				else{
+
+				}
 		
         return area;
     }
@@ -71,8 +81,20 @@ public class MyPolygon {
      * @return
      */
     boolean isPointInside(MyPoint p) {
-		double inside = true;
-		
+		boolean inside = true;
+        for(int i = 0;i<Points.size();i++){
+
+
+            double res = 0.0;
+            res = CG.ccw(this.Points.get(i), this.Points.get((i+1) % this.Points.size()), p);
+			if (res<0.0){
+                inside = false; //return false jika  res = minus yang artinya belok kanan. Berarti titiknya ada diluar 
+                return inside;
+
+            }  
+
+        }
+		//return true jika titik p di ada dalam atau berimpitan 
         return inside;
     }
 
