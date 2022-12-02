@@ -21,28 +21,36 @@ public class MyLineSegment {
      */                                         
     double distanceToPoint(MyPoint p ) {
 		double dist = 0.0;	//menyimpan jarak
-        MyPoint pq = new MyPoint(this.start.x - p.x,this.start.y-p.y ); //instansiasi vektor pq
-        MyPoint qr = new MyPoint(this.end.x - this.start.x,this.end.y-this.start.y ); //instansiasi vektor qr
+        double dot = 0.0;
+        // MyPoint pq = new MyPoint(this.start.x - p.x,this.start.y-p.y ); //instansiasi vektor pq
+        // MyPoint qr = new MyPoint(this.end.x - this.start.x,this.end.y-this.start.y ); //instansiasi vektor qr
 
-        MyPoint qp = new MyPoint(p.x-this.start.x,p.y-this.start.y); //instansiasi vektor qp
-        MyPoint pr = new MyPoint(this.end.x-p.x,this.end.y-p.y); //instansiasi vektor pr
+        // MyPoint qp = new MyPoint(p.x-this.start.x,p.y-this.start.y); //instansiasi vektor qp
+        // MyPoint pr = new MyPoint(this.end.x-p.x,this.end.y-p.y); //instansiasi vektor pr
 
-        double pqdotpr = pq.x*qr.x+pq.y*qr.y; //mencari dot product dari vektor pq dan pr
+        dot = CG.dot(this.start, this.end, p);
+        double x,y;
+        x = this.end.x-this.start.x;
+        
+        y = this.end.y-this.start.y;
+        
+        double d = dot/(x*x + y*y);
+        // double pqdotpr = pq.x*qr.x+pq.y*qr.y; //mencari dot product dari vektor pq dan pr
 
-        double qpdotpr = qp.x*pr.x+qp.y*pr.y; //mencari dot product dari vektor qp dan vektor pr
+        // double qpdotpr = qp.x*pr.x+qp.y*pr.y; //mencari dot product dari vektor qp dan vektor pr
        
        //kondisi jika dot product dari vektor pq dan vektor pr lebih besar dari 0
-        if(pqdotpr> 0){
-            dist = this.start.distanceToOtherPoints(p); //maka hitung jarak dari titik awal ke titik
+        if(d > 1){
+            dist = this.end.distanceToOtherPoints(p); //maka hitung jarak dari titik awal ke titik
 
         //kondisi jika dot product dari vektor qp dan pr lebih besar dari 0
-        }else if(qpdotpr> 0){
-            dist = this.end.distanceToOtherPoints(p); //maka hitung jarak dari titik akhir ke titik 
+        }else if(d < 0){
+            dist = this.start.distanceToOtherPoints(p); //maka hitung jarak dari titik akhir ke titik 
         }else{
             //distancenya masih belum benar kemungkinan rumusnya masih salah 
             double A = this.start.x - this.end.x; 
-            double B = this.start.y - this.end.y;
-            double c = A * this.start.x + B * this.end.y;
+            double B = this.start.y - this.end.y; 
+            double c = A * this.start.x + B * this.end.y; 
             
             if(B>0){
                 dist = Math.abs((p.x *A) + (p.y *B) - c) / Math.sqrt(Math.pow(A, 2) + Math.pow(B, 2));

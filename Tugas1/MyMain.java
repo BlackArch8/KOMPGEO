@@ -22,8 +22,8 @@ public class MyMain {
 
 				
 				MyLineSegment l = new MyLineSegment(q,r); //instansiasi segmen garis
-
-				double hasil = l.distanceToPoint(p); //mendapatkan hasil dengan cara memanggil method untuk mencari jarak dari segmen garis ke titik  
+				double hasil = p.distanceToLineSegment(l);//mendapatkan hasil dengan cara memanggil method untuk mencari jarak dari segmen garis ke titik  
+				 
 
 				System.out.printf("%.3f",hasil ); //output hasil
 
@@ -67,19 +67,19 @@ public class MyMain {
 				MyPolygon poly = new MyPolygon();
 				
 
-
+				//memasukkan poin-point yang membentuk polygon ke dalam arraylist
 				for (int i = 0;i<n;i++){
 					MyPoint p = new MyPoint (sc.nextDouble(),sc.nextDouble());
 					poly.addPoint(p);
 
 				}
-				boolean hasil = poly.isConvex();
+				boolean hasil = poly.isConvex(); 
 
-				if (hasil == true){
+				if (hasil == true){ //kondisi saat semua segmen garis berbelok ke kiri 
 					System.out.println("Convex");
 
 				}else{
-					System.out.println("Concave");
+					System.out.println("Concave");//kondisi saat segmen garis ada yang berbelok ke kanan
 				}
 		
 
@@ -87,22 +87,23 @@ public class MyMain {
 
 			}
 			else if (6==ch) {
-				int n = sc.nextInt();
-				MyPolygon poly = new MyPolygon();
+				int n = sc.nextInt(); //input banyaknya titik
+				MyPolygon poly = new MyPolygon(); //instansiasi simple polygon
 
+				//looping input titik dan memasukan seluruh input titik ke array list polygon 
 				for(int i = 0;i<n;i++){
-					MyPoint p = new MyPoint(sc.nextDouble(), sc.nextDouble());
-					poly.addPoint(p);
+					MyPoint p = new MyPoint(sc.nextDouble(), sc.nextDouble()); //input titik
+					poly.addPoint(p); //memasukan input titik ke array list polygon
 				}
 				
 				
-				System.out.println(poly.area());
+				System.out.println(poly.area()); //output
 
 			}
 			else if (7==ch) { //fungsi 7
 				int n = sc.nextInt();
 				MyPolygon poly = new MyPolygon();
-
+				//input semua 
 				for (int i = 0;i<n;i++){
 					MyPoint p = new MyPoint (sc.nextDouble(),sc.nextDouble());
 					poly.addPoint(p);

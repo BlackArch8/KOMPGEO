@@ -39,8 +39,10 @@ public class MyPoint {
      */
     double distanceToLineSegment(MyLineSegment l) {
 		double res = 0.0; //deklarasi hasil(jarak titik ke segmen garis)
+        
         //panggil aja dari l, l.distanceToPoint(this);
-        res = l.distanceToPoint(null); //memanggil method distanceToPoint untuk mencari jarak titik ke segmen garis
+        MyPoint p = new MyPoint(this.x, this.y);
+        res = l.distanceToPoint(p); //memanggil method distanceToPoint untuk mencari jarak titik ke segmen garis
         return res; //return hasil
     }
 }

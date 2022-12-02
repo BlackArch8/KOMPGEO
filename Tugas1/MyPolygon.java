@@ -28,13 +28,14 @@ public class MyPolygon {
      * @return
      */
     boolean isConvex() {
-		boolean convex = true;
+		boolean convex = true;//return true jika semua nya berbelok ke kiri
+        //cek setiap segmen garis 
         for(int i = 0;i<Points.size();i++){
 
 
             double res = 0.0;
             res = CG.ccw(this.Points.get(i % this.Points.size()) , this.Points.get((i+1) % this.Points.size()), this.Points.get((i+2) % this.Points.size()));
-			if (res<0.0){
+			if (res<0.0){//jika belok kanan maka maka polygon tersebut concave
                 convex = false;
                 return convex;
 

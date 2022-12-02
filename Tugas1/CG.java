@@ -19,9 +19,13 @@ public class CG {
      * @return
      */
     public static double dot(MyPoint p, MyPoint q, MyPoint r) {
+        MyPoint pq = new MyPoint((q.x-p.x),(q.y-p.y)); //
+        MyPoint pr = new MyPoint((r.x-p.x),(r.y-p.y));
+        double res = ((pq.x*pr.x)+(pq.y*pr.y));
+
         
 
-        return 0;
+        return res;
     }
 
     /**
