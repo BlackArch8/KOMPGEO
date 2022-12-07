@@ -2,6 +2,7 @@
 //		  Kevin Jonathan - 6182001026
 
 import java.util.Scanner;
+import java.util.Collections;
 
 public class MyMain {
     
@@ -59,7 +60,7 @@ public class MyMain {
 				}
 
 				
-
+				
 
 			}
 			else if (5==ch) { // fungsi 5
@@ -135,6 +136,13 @@ public class MyMain {
 				}
 				System.out.println("koordinat x titik terkecil: "+mps.carititikTerkecil().x);
 				System.out.println("koordinat y titik terkecil: "+mps.carititikTerkecil().y);
+
+				for(int i = 0;i<n;i++){
+					Collections.sort(mps.Points,(mps.Points.get(i),mps.Points.get(i+1))->{
+					long cr = CG.cross()
+				});
+				}
+				
 				//Mypoint titikPertama = mps.Points.get(0);
 			}			
 			ch = sc.nextInt();				// pilihan berikutnya

@@ -32,9 +32,12 @@ public class CG {
      * jika perlu
      * @return
      */
-    public static MyPoint cross() {
-        
-        return new MyPoint(0,0);
+    public static double cross(MyPoint p, MyPoint q, MyPoint r) {
+
+        MyPoint pq = new MyPoint((q.x-p.x),(q.y-p.y));
+        MyPoint pr = new MyPoint((r.x-p.x),(r.y-p.y));
+        double res = (pq.x*pr.y) - (pq.y*pr.x);
+        return res;
     }
 
 }
