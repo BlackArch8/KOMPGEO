@@ -1,5 +1,5 @@
 //@author Doni Andrian - 6182001020
-//		  Kevin Jonathan - 6182001020
+//		  Kevin Jonathan - 6182001026
 
 import java.util.Scanner;
 
@@ -125,7 +125,18 @@ public class MyMain {
 				
 
 			}
-			else if (8==ch) {}			
+			else if (8==ch) {
+				int n = sc.nextInt(); //input banyaknya titik
+				MyPointSet mps = new MyPointSet(); //instansiasi kumpulan titik(point set)
+
+				for(int i = 0;i<n;i++){
+					MyPoint p = new MyPoint (sc.nextDouble(),sc.nextDouble());
+					mps.addPoint(p);
+				}
+				System.out.println("koordinat x titik terkecil: "+mps.carititikTerkecil().x);
+				System.out.println("koordinat y titik terkecil: "+mps.carititikTerkecil().y);
+				//Mypoint titikPertama = mps.Points.get(0);
+			}			
 			ch = sc.nextInt();				// pilihan berikutnya
 		}			
         //System.out.println(CG.ccw(p,q,t));
