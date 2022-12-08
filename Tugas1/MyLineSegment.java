@@ -22,11 +22,7 @@ public class MyLineSegment {
     double distanceToPoint(MyPoint p ) {
 		double dist = 0.0;	//menyimpan jarak
         double dot = 0.0;
-        // MyPoint pq = new MyPoint(this.start.x - p.x,this.start.y-p.y ); //instansiasi vektor pq
-        // MyPoint qr = new MyPoint(this.end.x - this.start.x,this.end.y-this.start.y ); //instansiasi vektor qr
-
-        // MyPoint qp = new MyPoint(p.x-this.start.x,p.y-this.start.y); //instansiasi vektor qp
-        // MyPoint pr = new MyPoint(this.end.x-p.x,this.end.y-p.y); //instansiasi vektor pr
+        
 
         dot = CG.dot(this.start, this.end, p);
         double x,y;
@@ -35,9 +31,7 @@ public class MyLineSegment {
         y = this.end.y-this.start.y;
         
         double d = dot/(x*x + y*y);
-        // double pqdotpr = pq.x*qr.x+pq.y*qr.y; //mencari dot product dari vektor pq dan pr
-
-        // double qpdotpr = qp.x*pr.x+qp.y*pr.y; //mencari dot product dari vektor qp dan vektor pr
+        
        
        //kondisi jika dot product dari vektor pq dan vektor pr lebih besar dari 0
         if(d > 1){
@@ -47,17 +41,18 @@ public class MyLineSegment {
         }else if(d < 0){
             dist = this.start.distanceToOtherPoints(p); //maka hitung jarak dari titik akhir ke titik 
         }else{
-            //distancenya masih belum benar kemungkinan rumusnya masih salah 
-            double A = this.start.x - this.end.x; 
-            double B = this.start.y - this.end.y; 
-            double c = A * this.start.x + B * this.end.y; 
-            
-            if(B>0){
-                dist = Math.abs((p.x *A) + (p.y *B) - c) / Math.sqrt(Math.pow(A, 2) + Math.pow(B, 2));
+            //sumber : https://stackoverflow.com/questions/849211/shortest-distance-between-a-point-and-a-line-segment
 
-            }else{
-                dist = Math.abs((p.x *A) - (p.y *B) + c) / Math.sqrt(Math.pow(A, 2) + Math.pow(B, 2));
-            }
+            double A = this.end.x -this.start.x ; 
+            double B = this.end.y-this.start.y ; 
+            
+            double xx = this.start.x + d * A;
+            double yy = this.start.y + d * B;
+            MyPoint temp = new MyPoint(xx, yy);
+            // double dx = p.x-xx;
+            // double dy = p.y-yy;
+            // dist = Math.sqrt(dx * dx + dy * dy);
+            dist = temp.distanceToOtherPoints(p);
             
         }
         

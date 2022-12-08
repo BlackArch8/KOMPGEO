@@ -32,12 +32,16 @@ public class CG {
      * jika perlu
      * @return
      */
-    public static double cross(MyPoint p, MyPoint q, MyPoint r) {
+    // public static double cross(MyPoint p, MyPoint q, MyPoint r) {
 
-        MyPoint pq = new MyPoint((q.x-p.x),(q.y-p.y));
-        MyPoint pr = new MyPoint((r.x-p.x),(r.y-p.y));
-        double res = (pq.x*pr.y) - (pq.y*pr.x);
-        return res;
+    //     MyPoint pq = new MyPoint((q.x-p.x),(q.y-p.y));
+    //     MyPoint pr = new MyPoint((r.x-p.x),(r.y-p.y));
+    //     double res = (pq.x*pr.y) - (pq.y*pr.x);
+    //     return res;
+    // }
+
+    //sumber: https://stackoverflow.com/questions/54170381/sorting-by-polar-angle
+    public static double cross(double x1,double y1,double x2,double y2){
+        return x1*y2 - x2*y1;
     }
-
 }

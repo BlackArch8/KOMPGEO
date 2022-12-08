@@ -98,7 +98,7 @@ public class MyMain {
 				}
 				
 				
-				System.out.println(poly.area()); //output
+				System.out.printf("%.3f",poly.area()); //output
 
 			}
 			else if (7==ch) { //fungsi 7
@@ -136,11 +136,13 @@ public class MyMain {
 				}
 				System.out.println("koordinat x titik terkecil: "+mps.carititikTerkecil().x);
 				System.out.println("koordinat y titik terkecil: "+mps.carititikTerkecil().y);
-
+				
+				//sumber: https://stackoverflow.com/questions/54170381/sorting-by-polar-angle
 				for(int i = 0;i<n;i++){
-					Collections.sort(mps.Points,(mps.Points.get(i),mps.Points.get(i+1))->{
-					long cr = CG.cross()
-				});
+					int doSort(){
+
+					}
+					
 				}
 				
 				//Mypoint titikPertama = mps.Points.get(0);

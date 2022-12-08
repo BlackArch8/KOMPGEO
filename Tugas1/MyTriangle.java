@@ -20,10 +20,12 @@ public class MyTriangle {
      */
     double area() {
 		double area = 0.0;
-        double a = (this.a.distanceToOtherPoints(this.c));
-        MyLineSegment l = new MyLineSegment(this.a,this.c);
-        double t = l.distanceToPoint(this.b); //masih salah(nomor 2)  
-		area = 0.5*a*t;
+        //sumber : https://github.com/AhmadElsagheer/Competitive-programming-library/blob/master/geometry/Triangle.java
+        double ab,bc,ca;
+        ab = this.a.distanceToOtherPoints(b); bc = this.b.distanceToOtherPoints(c); ca = this.c.distanceToOtherPoints(a);
+        double s = (ab + bc + ca) / 2.0;
+		area = Math.sqrt(s * (s - ab) * (s - bc) * (s - ca));	
+    
         return area;
     }
 

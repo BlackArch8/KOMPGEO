@@ -58,19 +58,17 @@ public class MyPolygon {
     double area() {
 
 		double area = 0.0;
-        //kondisi convex
-        boolean isConvex = isConvex();
+        
+        
 
-				if(isConvex==true){
-					for(int i = 0;i<this.Points.size()-2;i++){
-                        MyTriangle T = new MyTriangle(this.Points.get(0),this.Points.get(i+1),this.Points.get(i+2));
-                        area += T.area();
-                    }
-				}
+				
+		for(int i = 0;i<this.Points.size()-2;i++){
+             MyTriangle T = new MyTriangle(this.Points.get(0),this.Points.get(i+1),this.Points.get(i+2));
+            area += T.area();
+        }
+				
 				//kondisi concave
-				else{
-
-				}
+				
 		
         return area;
     }
