@@ -4,6 +4,8 @@ public class MyPoint {
     /** deklarasi koordinat y titik */
     public double y;
 
+    int angle; //membuat atribut angle untuk sort berdasarkan sudut
+
     /**
      * konstruktor
      * @param x
@@ -12,6 +14,7 @@ public class MyPoint {
     MyPoint (double x, double y) {
         this.x = x; //mengisi variabel x di class MyPoint dengan parameter x
         this.y = y; //mengisi variabel y di class MyPoint dengan parameter y
+       
     }
 
     /**
@@ -41,8 +44,22 @@ public class MyPoint {
 		double res = 0.0; //deklarasi hasil(jarak titik ke segmen garis)
         
         //panggil aja dari l, l.distanceToPoint(this);
-        MyPoint p = new MyPoint(this.x, this.y);
+        MyPoint p = new MyPoint(this.x, this.y); //instansiasi titik yang akan dihitung jaraknya ke segmen garis
         res = l.distanceToPoint(p); //memanggil method distanceToPoint untuk mencari jarak titik ke segmen garis
         return res; //return hasil
     }
+
+    /**
+     * Method tambahan untuk mencari sudut
+     * sumber : https://www.sanfoundry.com/java-program-implement-graham-scan-algorithm-find-convex-hull/
+     * */
+    double angleTo(MyPoint that)
+    {
+        //mencari sudut 
+        double dx = that.x - this.x;
+        double dy = that.y - this.y;
+        return Math.atan2(dy, dx); 
+    }
+
+    
 }
