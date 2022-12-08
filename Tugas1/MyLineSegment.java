@@ -49,9 +49,7 @@ public class MyLineSegment {
             double xx = this.start.x + d * A;
             double yy = this.start.y + d * B;
             MyPoint temp = new MyPoint(xx, yy);
-            // double dx = p.x-xx;
-            // double dy = p.y-yy;
-            // dist = Math.sqrt(dx * dx + dy * dy);
+            
             dist = temp.distanceToOtherPoints(p);
             
         }
